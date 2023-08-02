@@ -1,1 +1,6 @@
 site_name: My Docs
+theme:
+  name: material
+extra_css:
+  - stylesheets/extra.css
+
