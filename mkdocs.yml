@@ -1,9 +1,11 @@
-site_name: My Docs
+site_name: Shook_0518
 
 nav:
-  - ROS学习: 
-    - ROS入门21讲: index.md
-  - 机器人学: about.md
+  - 项目: 
+    - PROJECT/index.md
+    - USV:
+      - 硬件平台搭建: PROJECT/USV/hardware.md
+  - 2: about.md
 
 
 # [UI]
