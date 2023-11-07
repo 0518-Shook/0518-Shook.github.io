@@ -5,7 +5,10 @@ nav:
     - PROJECT/index.md
     - USV:
       - 硬件平台搭建: PROJECT/USV/hardware.md
-  - 2: about.md
+  - 学习: 
+    - STUDY/index.md
+    - 嵌入式Linux应用开发基础知识:
+      - GCC编译器的使用: STUDY\LinuxAppBase\UseOfGCC.md
 
 
 # [UI]
