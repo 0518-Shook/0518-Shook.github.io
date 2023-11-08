@@ -119,8 +119,8 @@ A := $(C)
 B = $(C)
 C = abc
 
-#D = 100ask
-D ?= weidongshan
+#D = is
+D ?= OK
 
 all:
 	@echo A = $(A)
@@ -141,7 +141,7 @@ make
 ```bash
 A =
 B = abc 123
-D = weidongshan
+D = OK
 ```
 
 分析：
@@ -153,13 +153,13 @@ A为即使变量，在定义时即确定，由于刚开始C的值为空，所以
 2) B = \$(C)：
 B为延时变量，只有使用到时它的值才确定，当执行make时，会解析Makefile里面的所用变量，所以先解析C= abc,然后解析C += 123，此时，C = abc 123，当执行：\@echo B = \$(B) B的值为 abc 123。
 
-3) D ?= weidongshan：
+3) D ?= OK：
 
-D变量在前面没有定义，所以D的值为weidongshan，如果在前面添加D = 100ask，最后D的值为100ask。
+D变量在前面没有定义，所以D的值为OK，如果在前面添加D = is，最后D的值为is。
 
 我们还可以通过命令行存入变量的值 例如：
 
-执行：make D=123456 里面的 D ?= weidongshan 这句话就不起作用了。
+执行：make D=123456 里面的 D ?= OK 这句话就不起作用了。
 
 结果：
 
@@ -188,7 +188,7 @@ $(foreach var,list,text)
 
 ```bash
 A = a b c
-B = $(foreach f, &(A), $(f).o)
+B = $(foreach f, $(A), $(f).o)
 
 all:
 	@echo B = $(B)
@@ -279,7 +279,7 @@ files3 = a.c b.c c.c
 函数 patsubst 语法如下：
 
 ```bash
-$(patsubst pattern,replacement,\$(var))
+$(patsubst pattern,replacement,$(var))
 ```
 
 patsubst 函数是从 var 变量里面取出每一个值，如果这个符合 pattern 格式，把它替换成 replacement 格式，
@@ -306,14 +306,14 @@ dep_files = a.d b.d c.d d.d e.d abc
 
 
 # Makefile实例 #
-前面讲了那么多Makefile的知识，现在开始做一个实例。
+
 
 之前编译的程序`002_syntax`，有个缺陷，将其复制出来，新建一个`003_example`文件夹，放在里面。
 在`c.c`里面，包含一个头文件`c.h`，在`c.h`里面定义一个宏，把这个宏打印出来。
 c.c:
 ```
 #include <stdio.h>
-#include <c.h>
+#include "c.h"
 
 void func_c()
 {
