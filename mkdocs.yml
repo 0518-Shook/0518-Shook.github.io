@@ -5,6 +5,8 @@ nav:
     - PROJECT/index.md
     - USV:
       - 硬件平台搭建: PROJECT/USV/hardware.md
+      - RoverPositionControl: PROJECT/USV/RoverPositionControl.md
+      - Mixer: PROJECT/USV/mixer.md
   - 学习: 
     - STUDY/index.md
     - 嵌入式Linux应用开发基础知识:
@@ -14,6 +16,7 @@ nav:
   - 技术解决:
     - QBLOG/index.md
     - Mac远程连接Win以及Vmware: QBLOG/1.md
+    - px4的一些问题: px4-log/px4.md
 
 # [UI]
 ## [top]
